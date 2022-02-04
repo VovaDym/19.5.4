@@ -28,7 +28,6 @@ int main() {
     {
         std::cout << "File is open: " << std::endl;
         file >> str;
-        std::string str1 = "PNG";
 
         if ((int)str[0] == -119 && str.substr(1,3) == "PNG")
         {
