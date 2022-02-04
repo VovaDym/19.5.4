@@ -13,20 +13,31 @@
 
 int main() {
 
-    char  ch[4];
-
+    std::string  str;
     std::string path;
     std::cout << "Enter the path to the file: ";
     std::cin >> path;
 
     std::ifstream file(path,std::ios::binary);
-    file.read(ch, 4);
-    if((int)ch[0] == -119 && ch[1] == 'P' && ch[2] == 'N' && ch[3] == 'G')
+
+    if (!file.is_open())
     {
-        std::cout<<"Yes";
+        std::cout << "Error!";
     }
     else
     {
-        std::cout<<"No";
+        std::cout << "File is open: " << std::endl;
+        file >> str;
+        std::string str1 = "PNG";
+
+        if ((int)str[0] == -119 && str.substr(1,3) == "PNG")
+        {
+            std::cout << "Yes";
+        }
+        else
+        {
+            std::cout << "No";
+        }
     }
+    file.close();
 }
